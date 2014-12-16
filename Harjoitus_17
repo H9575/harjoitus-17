@@ -1,0 +1,42 @@
+//	Jani Kähkönen/H9575
+
+#include <iostream>
+
+struct Hlo_tiedot
+{
+	char _e[10];
+	char _s[10];
+	float _m;
+	char _o[10];
+	char _p[10];
+	int _n;
+};
+
+int main()
+{
+	const int MAX = 3;
+	Hlo_tiedot x[MAX];
+
+	x[0] = { "AAA", "a", 5, "a", "a", 5 };
+	x[1] = { "BBB", "b", 6, "b", "b", 6 };
+	x[2] = { "CCC", "c", 3, "c", "c", 6 };
+
+	for (int i = 0; i < MAX; i++)
+	{
+		for (int j = 0; j < MAX; j++)
+		{
+			if (x[i]._m < x[j]._m)
+			{
+				Hlo_tiedot temp = x[i];
+				x[i] = x[j];
+				x[j] = temp;
+			}
+		}
+	}
+
+	for (int i = 0; i < MAX; i++)
+	{
+		std::cout << x[i]._e << " " << x[i]._s << " " << x[i]._m << " " << x[i]._o << " " << x[i]._p << " " << x[i]._n << std::endl;
+	}
+
+}
